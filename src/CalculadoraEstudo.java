@@ -17,9 +17,17 @@ public class CalculadoraEstudo {
 
             // Ler horas por dia
             for (int i = 0; i < dias; i++) {
-                System.out.print("Horas de estudo no dia " + (i + 1) + ": ");
-                horas[i] = scanner.nextInt();
-                total += horas[i];
+                int aux;
+                do {
+                    System.out.print("Horas de estudo no dia " + (i + 1) + " (0 a 8): ");
+                    aux = scanner.nextInt();
+                    if (aux < 0 || aux > 8) {
+                        System.out.println(" Número de horas inválido! Tente novamente.");
+                    }
+                } while (aux < 0 || aux > 8);
+
+                horas[i] = aux;
+                total += aux;
             }
 
             // Calcular média
